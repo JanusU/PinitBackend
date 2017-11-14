@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
   //recieve JSON with markers/pins
   findPins(function(response){
+    console.log(response);
     res.send(JSON.stringify(response,null,""));
   });
 })
@@ -24,5 +25,6 @@ app.listen(PORT, function () {
 app.post('/pin', function(req, res){
   //let json = JSON.parse(req.body);
   //pin(json.userName, json.text, json.coordinates);
+  console.log(req.body);
   pin(req.body.userName, req.body.text, req.body.coordinates);
 })
