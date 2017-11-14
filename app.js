@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const facade = require("./facade/PinFacade");
 require("../models/Locations");
 const mongoose = require("mongoose");
 Location = mongoose.model("location");
@@ -10,7 +9,7 @@ Location = mongoose.model("location");
 
 app.get('/', function (req, res) {
   //recieve JSON with markers/pins
-  facade.findPins(function(response){
+  findPins(function(response){
     res.send(JSON.stringify(response,null,""));
   });
 })
@@ -21,7 +20,7 @@ app.listen(PORT, function () {
 
 app.post('/pin', function(req, res){
   let json = JSON.parse(req.body);
-  facade.pin(json.userName, json.text, json.coordinates);
+  pin(json.userName, json.text, json.coordinates);
 })
 
 function pin(name, txt, cords) {
