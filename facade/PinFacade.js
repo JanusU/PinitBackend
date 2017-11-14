@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 var Location = mongoose.model("location");
    
 function pin(name, txt, cords) {
-  Location.create({ userName: name, text: txt, loc: { type: "Point", coordinates: cords }});
+  Location.insert({ userName: name, text: txt, loc: { type: "Point", coordinates: cords }});
 }
 
 function findPins(callback){
