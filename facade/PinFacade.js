@@ -12,8 +12,3 @@ function findPins(callback){
     callback(err,docs);
   })
 }
-
-module.exports = {
-  pinMethod: pin,
-  findPinsMethod: findPins
-}
