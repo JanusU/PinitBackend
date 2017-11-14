@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   //recieve JSON with markers/pins
+  console.log("get");
   findPins(function(response){
     console.log(response);
     res.send(JSON.stringify(response,null,""));
