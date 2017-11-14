@@ -1,7 +1,7 @@
+require("./models/Locations");
 const express = require('express');
 const app = express();
 const PORT = 3000;
-require("./models/Locations");
 const mongoose = require("mongoose");
 Location = mongoose.model("location");
 
@@ -23,6 +23,7 @@ app.post('/pin', function(req, res){
   pin(json.userName, json.text, json.coordinates);
 })
 
+
 function pin(name, txt, cords) {
   Location.insertOne({ userName: name, text: txt, loc: { type: "Point", coordinates: cords }});
 }
@@ -33,4 +34,3 @@ function findPins(callback){
     callback(err,docs);
   })
 }
-
