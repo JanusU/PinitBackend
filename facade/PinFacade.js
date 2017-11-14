@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 var Location = mongoose.model("location");
    
 function pin(name, txt, cords) {
+  console.log("pin");
   let inserts = [
     { userName: name, text: txt, loc: { type: "Point", coordinates: cords }}
   ]
