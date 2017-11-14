@@ -18,13 +18,7 @@ function pin(name, txt, cords) {
 
 function findPins(res){
   Location.find((err, docs) => {  
-    if (err) {
-        // Note that this error doesn't mean nothing was found
-        res.send(err)
-    } else {
-        // send the list of all docs
-        res.send(docs);
-    }
+     res(docs);
 });
 }
 
