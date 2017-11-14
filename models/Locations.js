@@ -15,9 +15,8 @@ var LocationSchema = new mongoose.Schema({
 //LocationSchema.index({ category: 1, loc: "2dsphere" });
 
 //Replace with URL to your own mongolab-db
-const MONGO_DB = 'mongodb://<pinituser>:<pinit123>@ds261745.mlab.com:61745/pinit';
+const MONGO_DB = 'mongodb://pinituser:pinit123@ds261745.mlab.com:61745/pinit';
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_DB, { useMongoClient: true });
 
 var Location = mongoose.model("location", LocationSchema);
-
