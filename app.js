@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const PinFacade = require("./facade/PinFacade");
+var pin = require("./facade/PinFacade").pin;
+var findPins = require("./facade/PinFacade").findPins;
 
 
 
 
 app.get('/', function (req, res) {
   //recieve JSON with markers/pins
-  PinFacade.findPins(function(response){
+  findPins(function(response){
     res.send(JSON.stringify(response,null,""));
   });
 })
@@ -19,5 +20,5 @@ app.listen(PORT, function () {
 
 app.post('/pin', function(req, res){
   let json = JSON.parse(req.body);
-  PinFacade.pin(json.userName, json.text, json.coordinates);
+  pin(json.userName, json.text, json.coordinates);
 })
