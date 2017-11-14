@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
   //recieve JSON with markers/pins
   console.log("get");
   findPins(function(response){
-    console.log(response);
+    console.log(JSON.stringify(response,null,""));
     res.send(JSON.stringify(response,null,""));
   });
 })
