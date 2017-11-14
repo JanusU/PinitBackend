@@ -1,6 +1,6 @@
 require("../models/Locations");
 const mongoose = require("mongoose");
-Location = mongoose.model("location");
+var Location = mongoose.model("location");
    
 function pin(name, txt, cords) {
   Location.insertOne({ userName: name, text: txt, loc: { type: "Point", coordinates: cords }});
