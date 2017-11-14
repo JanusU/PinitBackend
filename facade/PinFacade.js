@@ -17,22 +17,9 @@ function pin(name, txt, cords) {
 }
 
 function findPins(callback){
-  let query = Location.find({
-    loc:
-    {
-      $near:{
-        $geometry: {
-          type: "Point",
-          coordinates: user.loc.coordinates
-        },
-        $maxDistance: 10000
-      }
-    }
-  }, { _id: 0, created: 0, __v: 0 })
-  query.exec(function (err, docs) {
-    callback(err,docs);
-  })
+  Location.find({callback(err,docs)})
 }
 
 exports.findPins = findPins;
 exports.pin = pin;
+
