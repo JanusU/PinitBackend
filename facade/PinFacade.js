@@ -12,3 +12,6 @@ function findPins(callback){
     callback(err,docs);
   })
 }
+
+exports.findPins = findPins;
+exports.pin = pin;
