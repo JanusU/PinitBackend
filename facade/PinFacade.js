@@ -16,7 +16,7 @@ function pin(name, txt, cords) {
   })
 }
 
-function findPins(callback){
+function findPins(res){
   Location.find((err, docs) => {  
     if (err) {
         // Note that this error doesn't mean nothing was found,
