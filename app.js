@@ -3,6 +3,9 @@ const app = express();
 const PORT = 3000;
 var pin = require("./facade/PinFacade").pin;
 var findPins = require("./facade/PinFacade").findPins;
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json());
 
 
 
@@ -19,6 +22,7 @@ app.listen(PORT, function () {
 })
 
 app.post('/pin', function(req, res){
-  let json = JSON.parse(req.body);
-  pin(json.userName, json.text, json.coordinates);
+  //let json = JSON.parse(req.body);
+  //pin(json.userName, json.text, json.coordinates);
+  pin(req.body.userName, req.body.text, req.body.coordinates);
 })
