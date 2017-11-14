@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-require("../models/Locations");
+require("./models/Locations");
 const mongoose = require("mongoose");
 Location = mongoose.model("location");
 
