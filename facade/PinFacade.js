@@ -17,7 +17,7 @@ function pin(name, txt, cords) {
 }
 
 function findPins(callback){
-  Location.find(callback(docs))
+  Location.find({},'',callback(err,docs))
 }
 
 exports.findPins = findPins;
